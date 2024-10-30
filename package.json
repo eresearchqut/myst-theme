@@ -14,6 +14,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel --filter='./packages/*'",
     "theme:book": "turbo run dev --parallel --filter='./themes/book'",
+    "theme:book-qut": "turbo run dev --parallel --filter='./themes/book-qut'",
     "theme:article": "turbo run dev --parallel --filter='./themes/article'",
     "test": "turbo run test",
     "storybook": "cd docs && npm run storybook",
