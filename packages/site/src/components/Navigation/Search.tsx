@@ -144,8 +144,8 @@ function SearchShortcut() {
     >
       <kbd
         className={classNames(
-          'px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md',
-          'shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)] dark:shadow-none',
+          'px-2 py-1 border border-gray-600 rounded-md text-gray-600',
+          'shadow-none',
           'hide-mac',
           { hidden: hostIsMac === true },
           { block: hostIsMac === false },
@@ -155,8 +155,8 @@ function SearchShortcut() {
       </kbd>
       <kbd
         className={classNames(
-          'px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md',
-          'shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)] dark:shadow-none',
+          'px-2 py-1 border border-gray-600 rounded-md text-gray-600',
+          'shadow-none',
           'show-mac',
           { hidden: hostIsMac === false },
           { block: hostIsMac === true },
@@ -164,7 +164,7 @@ function SearchShortcut() {
       >
         ⌘
       </kbd>
-      <kbd className="px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)] dark:shadow-none ">
+      <kbd className="px-2 py-1 border border-gray-600 text-gray-600 rounded-md shadow-none ">
         K
       </kbd>
       <BlockingPlatformLoader />
@@ -465,7 +465,7 @@ function SearchForm({
       <form onSubmit={onSubmit}>
         <div className="relative flex w-full h-10 flow-row gap-x-1 ">
           <label id={searchListID} htmlFor={searchInputID}>
-            <MagnifyingGlassIcon className="absolute text-gray-400 inset-y-0 start-0 h-10 w-10 p-2.5 aspect-square flex items-center pointer-events-none" />
+            <MagnifyingGlassIcon className="absolute text-gray-600 inset-y-0 start-0 h-10 w-10 p-2.5 aspect-square flex items-center pointer-events-none" />
           </label>
           <input
             autoComplete="off"
@@ -478,7 +478,7 @@ function SearchForm({
               'rounded-lg bg-gray-50 dark:bg-gray-700',
               'focus:ring-blue-500 dark:focus:ring-blue-500',
               'focus:border-blue-500 dark:focus:border-blue-500',
-              'dark:placeholder-gray-400',
+              'placeholder-gray-600 dark:placeholder-gray-400',
               { 'border-red-500': !enabled },
             )}
             id={searchInputID}
@@ -519,14 +519,12 @@ const SearchPlaceholderButton = forwardRef<
       {...props}
       className={classNames(
         className,
-        'flex items-center h-10 aspect-square sm:w-64 text-left text-gray-400',
-        'border border-gray-300 dark:border-gray-600',
-        'rounded-lg bg-gray-50 dark:bg-gray-700',
+        'flex items-center h-10 aspect-square sm:w-64 text-left text-gray-600',
+        'border border-gray-300',
+        'rounded-lg bg-gray-50',
         {
           'hover:ring-blue-500': !disabled,
-          'dark:hover:ring-blue-500': !disabled,
           'hover:border-blue-500': !disabled,
-          'dark:hover:border-blue-500': !disabled,
         },
       )}
       disabled={!!disabled}
