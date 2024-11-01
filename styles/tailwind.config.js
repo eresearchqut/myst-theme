@@ -10,6 +10,18 @@ module.exports = {
     '../packages/frontmatter/src/**/*.{js,ts,jsx,tsx}',
     '../docs/stories/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: mystTheme.themeExtensions,
+  theme: {
+    ...mystTheme.themeExtensions,
+    // Extend theme with custom qut approved colours
+    extend: {
+      colors: {
+        ...mystTheme.themeExtensions.colors,
+        qutCorpBlue: '#124C7B',
+        qutCyan: '#009FE3',
+        qutNavy: '#012A4C',
+        qutLightBlue: '#EFF6FB',
+      },
+    },
+  },
   plugins: [require('@tailwindcss/typography')],
 };
