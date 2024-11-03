@@ -107,7 +107,7 @@ export async function getMystSearchJson(): Promise<Record<string, any> | null> {
 
 export async function getFavicon(): Promise<{ contentType: string | null; buffer: Buffer } | null> {
   const config = await getConfig();
-  const url = updateLink(config.options?.favicon) || 'https://mystmd.org/favicon.ico';
+  const url = updateLink(config.options?.favicon) || 'https://www.qut.edu.au/favicon.ico';
   const response = await fetch(url).catch(() => null);
   if (!response || response.status === 404) return null;
   return { contentType: response.headers.get('Content-Type'), buffer: await response.buffer() };
