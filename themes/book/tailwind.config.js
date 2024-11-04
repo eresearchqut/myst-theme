@@ -14,6 +14,10 @@ module.exports = {
         qutNavy: '#012A4C',
       },
     },
+    fontFamily: {
+      sans: ['"Proxima Nova"', 'Arial', 'sans-serif'],
+      mono: ['Menlo', 'Monaco', 'Courier New', 'monospace'],
+    },
   },
   plugins: [require('@tailwindcss/typography')],
   safelist: mystTheme.safeList,
