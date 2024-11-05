@@ -1,5 +1,5 @@
 import type { FunctionComponent } from 'react';
-import type { LinkProps } from '~/components/TextWithLink.js';
+import type { LinkProps } from '~/components/Custom/TextWithLink.js';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline/index.js';
 
 export enum iconPositions {
