@@ -31,12 +31,12 @@ import { ComputeOptionsProvider, ThebeLoaderAndServer } from '@myst-theme/jupyte
 import { ArticlePage } from '~/components/ArticlePage';
 import type { TemplateOptions } from '~/types';
 import { useRouteError, isRouteErrorResponse } from '@remix-run/react';
-import { Footer } from '@myst-theme/site/dist/components/Custom/Footer';
-import { TextWithLink } from '@myst-theme/site/dist/components/Custom/TextWithLink';
 import {
+  Footer,
+  TextWithLink,
   ButtonWithIcon,
   iconPositions,
-} from '@myst-theme/site/dist/components/Custom/ButtonWithIcon';
+} from '@myst-theme/site/dist/components/Custom';
 import { EnvelopeIcon } from '@heroicons/react/24/solid';
 type ManifestProject = Required<SiteManifest>['projects'][0];
 
