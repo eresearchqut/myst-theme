@@ -28,9 +28,16 @@ import {
 } from '@myst-theme/providers';
 import { MadeWithMyst } from '@myst-theme/icons';
 import { ComputeOptionsProvider, ThebeLoaderAndServer } from '@myst-theme/jupyter';
-import { ArticlePage } from '../components/ArticlePage.js';
-import type { TemplateOptions } from '../types.js';
+import { ArticlePage } from '~/components/ArticlePage';
+import type { TemplateOptions } from '~/types';
 import { useRouteError, isRouteErrorResponse } from '@remix-run/react';
+import {
+  Footer,
+  TextWithLink,
+  ButtonWithIcon,
+  iconPositions,
+} from '@myst-theme/site/dist/components/Custom';
+import { EnvelopeIcon } from '@heroicons/react/24/solid';
 type ManifestProject = Required<SiteManifest>['projects'][0];
 
 export const meta: V2_MetaFunction<typeof loader> = ({ data, matches, location }) => {
@@ -108,6 +115,58 @@ function ArticlePageAndNavigationInternal({
           {children}
         </article>
       </TabStateProvider>
+      <Footer>
+        <div className="flex flex-col">
+          <div>Developed by the Office of eResearch, QUT</div>
+          <div>
+            <TextWithLink
+              link={{
+                href: 'https://www.qut.edu.au/about/indigenous',
+                text: 'QUT acknowledges the Traditional Owners of the lands where QUT now stands.',
+                isExternal: true,
+              }}
+              hasExternalIcon={true}
+            />
+          </div>
+          <div className="block md:hidden">
+            <TextWithLink
+              textBeforeLink={'TEQSA Provider ID '}
+              link={{
+                href: 'https://www.qut.edu.au/about/indigenous',
+                text: 'PRV12079',
+                isExternal: true,
+              }}
+              hasExternalIcon={true}
+              textAfterLink={' Australian University | CRICOS No. 00213J'}
+            />
+          </div>
+          <div className="hidden md:block">
+            <TextWithLink
+              textBeforeLink={'TEQSA'}
+              link={{
+                href: 'https://www.teqsa.gov.au/national-register/provider/queensland-university-technology',
+                text: 'PRV12079',
+                isExternal: true,
+              }}
+              hasExternalIcon={true}
+              textAfterLink={'| CRICOS No. 00213J'}
+            />
+          </div>
+        </div>
+
+        <div className="flex items-center align-center ml-auto h-full">
+          <ButtonWithIcon
+            icon={<EnvelopeIcon className="mx-1 w-4" />}
+            iconPosition={iconPositions.before}
+            link={{
+              href: 'mailto:eresearch@qut.edu.au',
+              text: 'Contact eResearch',
+              isExternal: true,
+            }}
+            hasExternalIcon={true}
+          />
+        </div>
+      </Footer>
     </>
   );
 }
