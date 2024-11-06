@@ -1,5 +1,5 @@
 import type { FunctionComponent } from 'react';
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { ArrowTopRightOnSquare } from '@myst-theme/icons';
 
 export interface LinkProps {
   href: string;
@@ -31,7 +31,7 @@ export const TextWithLink: FunctionComponent<TextWithLinkProps> = ({
       >
         {link.text}
       </a>
-      {hasExternalIcon && <ArrowTopRightOnSquareIcon className="mx-1 w-4" />}
+      {hasExternalIcon && <ArrowTopRightOnSquare size={20} className="mx-1" />}
       {textAfterLink ?? textAfterLink}
     </div>
   );

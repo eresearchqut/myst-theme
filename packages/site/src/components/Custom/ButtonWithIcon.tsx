@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
-import type { LinkProps } from '~/components/Custom/TextWithLink.js';
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline/index.js';
+import { LinkProps } from '@myst-theme/site/src/components/Custom';
+import { ArrowTopRightOnSquare } from '@myst-theme/icons';
 
 export enum iconPositions {
   before = 'before',
@@ -29,7 +29,7 @@ export const ButtonWithIcon: FunctionComponent<ButtonWithIconProps> = ({
     >
       {icon && iconPosition === iconPositions.before && icon}
       {link.text}
-      {hasExternalIcon && <ArrowTopRightOnSquareIcon className="mx-1 w-4" />}
+      {hasExternalIcon && <ArrowTopRightOnSquare size={20} className="mx-1" />}
       {icon && iconPosition === iconPositions.after && icon}
     </a>
   );
