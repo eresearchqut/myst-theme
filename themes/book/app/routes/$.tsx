@@ -128,7 +128,7 @@ function ArticlePageAndNavigationInternal({
               hasExternalIcon={true}
             />
           </div>
-          <div className="block md:hidden">
+          <div className="hidden lg:block">
             <TextWithLink
               textBeforeLink={'TEQSA Provider ID '}
               link={{
@@ -140,7 +140,7 @@ function ArticlePageAndNavigationInternal({
               textAfterLink={' Australian University | CRICOS No. 00213J'}
             />
           </div>
-          <div className="hidden md:block">
+          <div className="block lg:hidden">
             <TextWithLink
               textBeforeLink={'TEQSA'}
               link={{
@@ -154,18 +154,16 @@ function ArticlePageAndNavigationInternal({
           </div>
         </div>
 
-        <div className="flex items-center align-center ml-auto h-full">
-          <ButtonWithIcon
-            icon={<EnvelopeIcon className="mx-1 w-4" />}
-            iconPosition={iconPositions.before}
-            link={{
-              href: 'mailto:eresearch@qut.edu.au',
-              text: 'Contact eResearch',
-              isExternal: true,
-            }}
-            hasExternalIcon={true}
-          />
-        </div>
+        <ButtonWithIcon
+          icon={<EnvelopeIcon className="mx-1 w-4" />}
+          iconPosition={iconPositions.before}
+          link={{
+            href: 'mailto:eresearch@qut.edu.au',
+            text: 'Contact eResearch',
+            isExternal: true,
+          }}
+          hasExternalIcon={true}
+        />
       </Footer>
     </>
   );
