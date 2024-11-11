@@ -109,7 +109,7 @@ export function TopNav({ hideToc, hideSearch }: { hideToc?: boolean; hideSearch?
   const { title, nav, actions } = config ?? {};
   const { logo, logo_dark, logo_text } = config?.options ?? {};
   return (
-    <div className="bg-qutNavy backdrop-blur dark:bg-qutNavy shadow dark:shadow-qutNavy p-3 md:px-8 sticky w-screen top-0 z-30 h-[65px]">
+    <div className="bg-qutNavy backdrop-blur dark:bg-qutNavy shadow dark:shadow-qutNavy p-3 md:px-8 sticky w-full top-0 z-30 h-[65px]">
       <nav className="flex items-center justify-between flex-nowrap max-w-[1440px] mx-auto">
         <div className="flex flex-row xl:min-w-[19.5rem] mr-2 sm:mr-7 justify-start items-center shrink-0">
           {!hideToc && (

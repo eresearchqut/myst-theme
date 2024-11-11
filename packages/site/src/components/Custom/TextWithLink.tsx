@@ -21,17 +21,19 @@ export const TextWithLink: FunctionComponent<TextWithLinkProps> = ({
   textAfterLink,
 }) => {
   return (
-    <div className="flex flex-row">
+    <div className="flex items-start flex-wrap">
       {textBeforeLink && textBeforeLink}
       <a
-        className={`flex flex-row hover:underline ${textBeforeLink ? 'ml-1' : ''} ${textAfterLink ? 'mr-1' : ''}`}
+        className={`hover:underline ${textBeforeLink ? 'ml-1' : ''} ${textAfterLink ? 'mr-1' : ''}`}
         href={link.href}
         target={link.isExternal ? '_blank' : '_self'}
         rel={link.isExternal ? 'noopener noreferrer' : ''}
       >
-        {link.text}
+        <span className="inline-flex w-full break-all">
+          {link.text}
+          {hasExternalIcon && <ArrowTopRightOnSquare size={20} className="mx-1 shrink-0" />}
+        </span>
       </a>
-      {hasExternalIcon && <ArrowTopRightOnSquare size={20} className="mx-1" />}
       {textAfterLink ?? textAfterLink}
     </div>
   );
