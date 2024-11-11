@@ -1,10 +1,10 @@
-name: Build Book Theme
+name: Build Book Theme and Release
 
 on:
   push:
+    tags:
+      - 'v*'
     branches: [main, ci-*]
-  pull_request:
-    branches: [main]
 
 jobs:
   build:
@@ -27,3 +27,32 @@ jobs:
           name: book-theme
           path: |
             .deploy/book
+
+  gh-release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Create Github Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }} # The tag that triggered the workflow
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: |
+            .deploy/book
+          asset_name: book-theme.zip
+          asset_content_type: application/zip
