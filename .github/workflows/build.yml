@@ -7,7 +7,7 @@ on:
     branches: [main, ci-*]
 
 jobs:
-  build:
+  build-and-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,13 +27,6 @@ jobs:
           name: book-theme
           path: |
             .deploy/book
-
-  gh-release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
 
       - name: Create Github Release
         id: create_release
