@@ -1,4 +1,4 @@
-import { IconProps } from './interfaces.js';
+import type { IconProps } from './interfaces.js';
 
 export function ArrowTopRightOnSquare({
   size = 24,

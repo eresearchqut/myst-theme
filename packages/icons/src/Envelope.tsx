@@ -1,4 +1,4 @@
-import { IconProps } from './interfaces.js';
+import type { IconProps } from './interfaces.js';
 
 export function Envelope({ size = 24, fill = 'currentColor', className = 'size-6' }: IconProps) {
   return (
