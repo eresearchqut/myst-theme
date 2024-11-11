@@ -45,7 +45,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: |
-            .deploy/book
+          asset_path: .deploy/book-theme
           asset_name: book-theme.zip
           asset_content_type: application/zip
