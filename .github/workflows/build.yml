@@ -21,11 +21,16 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: make build-book
-#      - name: Archive production artifacts
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: book-theme
-#          path: .deploy/book
+
+      # Compress the directory into a ZIP file before uploading
+      - name: Compress production artifacts
+        run: zip -r book-theme.zip .deploy/book
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-theme
+          path: book-theme.zip
 
       - name: Create Github Release
         id: create_release
@@ -39,12 +44,12 @@ jobs:
           prerelease: false
 
       - name: Upload Release Asset
-        run: |
-          for file in $(find .deploy/book -type f); do
-            echo "Uploading $file..."
-            gh release upload ${{ github.ref_name }} "$file" --clobber
-          done
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: bash
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: book-theme.zip  # Update to point to the ZIP file
+          asset_name: book-theme.zip  # The name of the uploaded asset
+          asset_content_type: application/zip
 
