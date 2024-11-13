@@ -1,38 +1,54 @@
 name: Release
 on:
   push:
-    branches:
-      - main
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-permissions:
-  contents: write
-  pull-requests: write
+    tags:
+      - 'v*'
+      - 'latest'
+
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js 16.x
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+          submodules: recursive
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - run: npm install
       - run: npm run build
-      - run: npm run test
-      - name: Create Release Pull Request or Publish to npm
-        id: changesets
-        uses: changesets/action@v1
+      - run: make build-book
+
+      # Compress the directory into a ZIP file before uploading
+      - name: Compress production artifacts
+        run: zip -r book-theme.zip .deploy/book
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
         with:
-          version: npm run version
-          publish: npm run publish:ci
-          commit: 🚀 Release
-          createGithubReleases: true
+          name: book-theme
+          path: book-theme.zip
+
+      - name: Create Github Release
+        id: create_release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Send a Slack notification if a publish happens
-        if: steps.changesets.outputs.published == 'true'
-        run: echo "A new version of ${GITHUB_REPOSITORY} was published!"
+        with:
+          tag_name: ${{ github.ref_name }} # The tag that triggered the workflow
+          release_name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: book-theme.zip  # Update to point to the ZIP file
+          asset_name: book-theme.zip  # The name of the uploaded asset
+          asset_content_type: application/zip
