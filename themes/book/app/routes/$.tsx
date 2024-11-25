@@ -155,10 +155,9 @@ function ArticlePageAndNavigationInternal({
         </div>
 
         <ButtonWithIcon
-          icon={<EnvelopeIcon className="mx-1 w-4" />}
           iconPosition={iconPositions.before}
           link={{
-            href: 'mailto:eresearch@qut.edu.au',
+            href: 'https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage',
             text: 'Contact eResearch',
             isExternal: true,
           }}
