@@ -102,7 +102,7 @@ function ArticlePageAndNavigationInternal({
       <PrimaryNavigation
         sidebarRef={toc}
         hide_toc={hide_toc}
-        footer={<MadeWithMyst />}
+        footer={undefined}
         projectSlug={projectSlug}
       />
       <TabStateProvider>
