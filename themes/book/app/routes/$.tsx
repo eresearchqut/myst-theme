@@ -116,7 +116,7 @@ function ArticlePageAndNavigationInternal({
         </article>
       </TabStateProvider>
       <Footer>
-        <div className="flex flex-col md:mx-6">
+        <div className="flex flex-col md:mx-3 xl:mx-6">
           <div>Developed by the Office of eResearch, QUT</div>
           <div>
             <TextWithLink
