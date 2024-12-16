@@ -116,7 +116,7 @@ function ArticlePageAndNavigationInternal({
         </article>
       </TabStateProvider>
       <Footer>
-        <div className="flex flex-col">
+        <div className="flex flex-col md:mx-6">
           <div>Developed by the Office of eResearch, QUT</div>
           <div>
             <TextWithLink
@@ -153,17 +153,18 @@ function ArticlePageAndNavigationInternal({
             />
           </div>
         </div>
-
-        <ButtonWithIcon
-          icon={<EnvelopeIcon className="mx-1 w-4" />}
-          iconPosition={iconPositions.before}
-          link={{
-            href: 'mailto:eresearch@qut.edu.au',
-            text: 'Contact eResearch',
-            isExternal: true,
-          }}
-          hasExternalIcon={true}
-        />
+        <div className="md:mx-3">
+          <ButtonWithIcon
+            icon={<EnvelopeIcon className="mx-1 w-4" />}
+            iconPosition={iconPositions.before}
+            link={{
+              href: 'mailto:eresearch@qut.edu.au',
+              text: 'Contact eResearch',
+              isExternal: true,
+            }}
+            hasExternalIcon={true}
+          />
+        </div>
       </Footer>
     </>
   );

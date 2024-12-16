@@ -11,7 +11,7 @@ export const Footer: FunctionComponent<PropsWithChildren<FooterProps>> = (props)
     <Fragment>
       {!hideFooter && (
         <div className="bg-qutNavy dark:bg-qutNavy text text-white p-3 md:px-8 w-full top-0 z-30 min-h-[100px] min-w-[400px]">
-          <div className="flex flex-col md:flex-row md:justify-between items-center">
+          <div className="flex flex-col md:flex-row md:justify-between items-center max-w-[1440px] md:mx-auto">
             {children}
           </div>
         </div>
