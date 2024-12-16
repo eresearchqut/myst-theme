@@ -8,7 +8,7 @@ export enum iconPositions {
 }
 
 export interface ButtonWithIconProps {
-  icon: any;
+  icon?: any;
   iconPosition: iconPositions;
   link: LinkProps;
   hasExternalIcon: boolean;
