@@ -37,7 +37,6 @@ import {
   ButtonWithIcon,
   iconPositions,
 } from '@myst-theme/site/dist/components/Custom';
-import { EnvelopeIcon } from '@heroicons/react/24/solid';
 type ManifestProject = Required<SiteManifest>['projects'][0];
 
 export const meta: V2_MetaFunction<typeof loader> = ({ data, matches, location }) => {
@@ -155,10 +154,9 @@ function ArticlePageAndNavigationInternal({
         </div>
         <div className="md:mx-3">
           <ButtonWithIcon
-            icon={<EnvelopeIcon className="mx-1 w-4" />}
             iconPosition={iconPositions.before}
             link={{
-              href: 'mailto:eresearch@qut.edu.au',
+              href: 'https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage',
               text: 'Contact eResearch',
               isExternal: true,
             }}
