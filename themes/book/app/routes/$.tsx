@@ -37,7 +37,6 @@ import {
   ButtonWithIcon,
   iconPositions,
 } from '@myst-theme/site/dist/components/Custom';
-import { EnvelopeIcon } from '@heroicons/react/24/solid';
 type ManifestProject = Required<SiteManifest>['projects'][0];
 
 export const meta: V2_MetaFunction<typeof loader> = ({ data, matches, location }) => {
@@ -102,7 +101,7 @@ function ArticlePageAndNavigationInternal({
       <PrimaryNavigation
         sidebarRef={toc}
         hide_toc={hide_toc}
-        footer={undefined}
+        footer={<MadeWithMyst />}
         projectSlug={projectSlug}
       />
       <TabStateProvider>
@@ -116,7 +115,7 @@ function ArticlePageAndNavigationInternal({
         </article>
       </TabStateProvider>
       <Footer>
-        <div className="flex flex-col">
+        <div className="flex flex-col md:mx-3 xl:mx-6">
           <div>Developed by the Office of eResearch, QUT</div>
           <div>
             <TextWithLink
@@ -153,16 +152,17 @@ function ArticlePageAndNavigationInternal({
             />
           </div>
         </div>
-
-        <ButtonWithIcon
-          iconPosition={iconPositions.before}
-          link={{
-            href: 'https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage',
-            text: 'Contact eResearch',
-            isExternal: true,
-          }}
-          hasExternalIcon={true}
-        />
+        <div className="md:mx-3">
+          <ButtonWithIcon
+            iconPosition={iconPositions.before}
+            link={{
+              href: 'https://qutvirtual4.qut.edu.au/group/research-students/conducting-research/specialty-research-facilities/advanced-research-computing-storage',
+              text: 'Contact eResearch',
+              isExternal: true,
+            }}
+            hasExternalIcon={true}
+          />
+        </div>
       </Footer>
     </>
   );
