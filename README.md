@@ -66,14 +66,10 @@ To push your branch, use:
   git push -u origin <branch-name>
 ```
 
-Now, your branch should be on your remote repository, to create a pull request, follow the instructions in [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
-
-Once your branch is approved, you or the code reviewer will merged the branch into main branch.
+Now, your branch should be on your remote repository, to create a pull request, follow the instructions in [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request). Once your branch is approved, you or the code reviewer will merged the branch into main branch.
 
 ### Create a release on latest version
-Congratulations on merging your first branch (assume you just did it for first time). 
-
-Now, you may want to create a new release which contains your latest changes.
+Congratulations on merging your first branch (assume you just did it for first time). Now, you may want to create a new release which contains your latest changes.
 
 Again, make sure your are on correct branch. In this case, `main`, which you just merged your latest changes.
 
