@@ -69,6 +69,11 @@ To push your branch, use:
 Now, your branch should be on your remote repository, to create a pull request, follow the instructions in [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request). Once your branch is approved, you or the code reviewer will merged the branch into main branch.
 
 ### Create a release on latest version
+
+***[IMPORTANT]***
+
+[technical-docs](https://github.com/eresearchqut/technical-docs) is using `latest` release of this repository, please make sure you understand what you are doing before doing release.
+
 Congratulations on merging your first branch (assume you just did it for first time). Now, you may want to create a new release which contains your latest changes.
 
 Again, make sure your are on correct branch. In this case, `main`, which you just merged your latest changes.
@@ -83,9 +88,6 @@ Then, push the new tag to Github:
 ```
 
 If you are using GitHub CLI, follow the instructions in [here](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository?tool=cli).
-
-***IMPORTANT*** 
-[technical-docs](https://github.com/eresearchqut/technical-docs) is using `latest` release of this repository, please make sure you understand what you are doing before doing release.
 
 **(Advanced)** Additionally, if your tag is already existed, in this repo, it will likely be `latest`. To override:
 ```bash
