@@ -1,11 +1,11 @@
 # MyST Theme by QUT
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/executablebooks/myst-theme/blob/main/LICENSE)
+[![CI](https://github.com/executablebooks/myst-theme/workflows/CI/badge.svg)](https://github.com/executablebooks/myst-theme/actions)
+
 This is a forked version of [myst-theme by Jupyter Book](https://github.com/jupyter-book/myst-theme) with QUT branding. Including:
 - QUT Logo
 - QUT Header & Footer Colours
 - QUT Acknowledgements, TEQSA & CRICOS
-
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/executablebooks/myst-theme/blob/main/LICENSE)
-[![CI](https://github.com/executablebooks/myst-theme/workflows/CI/badge.svg)](https://github.com/executablebooks/myst-theme/actions)
 
 Packages for creating MyST websites themes using React and Remix.
 
